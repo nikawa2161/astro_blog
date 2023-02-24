@@ -1,0 +1,23 @@
+{
+	"name": "astro_blog",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/react": "^2.0.2",
+		"@types/react": "^18.0.10",
+		"@types/react-dom": "^18.0.5",
+		"astro": "^2.0.15",
+		"react": "^18.1.0",
+		"react-dom": "^18.1.0"
+	},
+	"devDependencies": {
+		"sass": "^1.58.3"
+	}
+}
