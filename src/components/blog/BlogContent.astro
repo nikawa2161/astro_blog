@@ -1,0 +1,69 @@
+---
+const { content } = Astro.props;
+---
+
+<section class="flex gap-x-7 px-3 pt-32">
+  <div class="bg flex-1 p-4 rounded-xl shadow">
+    <div class="post" set:html={content} />
+  </div>
+  <aside class="w-72">
+    <div class="bg p-4 rounded-xl shadow overflow-auto">
+      <h2 class="font-bold mb-2">目次</h2>
+
+      <ol class="relative">
+        <li class="item relative font-bold mb-2 pl-5">
+          <a href=""> セクションタイトル</a>
+        </li>
+        <li class="item relative font-bold mb-2 pl-5">
+          <a href=""> セクションタイトル</a>
+        </li>
+        <li class="item relative font-bold mb-2 pl-5">
+          <a href=""> セクションタイトル</a>
+        </li>
+      </ol>
+    </div>
+  </aside>
+</section>
+
+<style lang="scss">
+  section {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  ol {
+    font-size: 1rem;
+  }
+
+  .bg {
+    background-color: #ffff;
+  }
+
+  ol::before {
+    position: absolute;
+    content: "";
+    width: 2px;
+    background: #e0efff;
+    top: 17px;
+    bottom: 8px;
+    left: 5px;
+    border-radius: 0 0 5px 5px;
+  }
+  .item::before {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    left: 0;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: #b0d3f9;
+  }
+  .active.item::before {
+    background: #3ea8ff;
+    border-color: #e0efff;
+  }
+</style>
