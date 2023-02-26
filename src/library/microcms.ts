@@ -8,6 +8,9 @@ const client = createClient({
 type Eyecatch = {
   url: string
 }
+type Category = {
+  name: string
+}
 export type Blog = {
   id: string;
   createdAt: string;
@@ -17,6 +20,7 @@ export type Blog = {
   title: string;
   content: string;
   eyecatch: Eyecatch;
+  category: Category;
 };
 export type BlogResponse = {
   totalCount: number;
