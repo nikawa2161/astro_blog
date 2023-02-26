@@ -5,6 +5,9 @@ const client = createClient({
 });
 
 //型定義
+type Eyecatch = {
+  url: string
+}
 export type Blog = {
   id: string;
   createdAt: string;
@@ -13,6 +16,7 @@ export type Blog = {
   revisedAt: string;
   title: string;
   content: string;
+  eyecatch: Eyecatch;
 };
 export type BlogResponse = {
   totalCount: number;
