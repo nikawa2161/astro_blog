@@ -17,13 +17,13 @@ const dateFormat = (date: string) =>
     <ul class="grid gap-4 grid-cols-3">
       {
         response.contents.map((content: any) => (
-          <li>
+          <li class="bg relative rounded-lg overflow-hidden shadow-lg shadow-neutral-200 ease-in-out duration-75 transition-all hover:-top-2">
             <a
               href={`blog/${content.id}`}
-              class="relative rounded-lg overflow-hidden shadow-lg shadow-neutral-200 ease-in-out duration-75 transition-all hover:-top-2"
+              class=""
             >
               <img src={content.eyecatch.url} alt="" />
-              <div class="text-wrap p-2">
+              <div class="p-2">
                 <p class="date">{dateFormat(content.updatedAt)}</p>
                 <p class="text mt-2">{content.title}</p>
               </div>
@@ -42,7 +42,7 @@ const dateFormat = (date: string) =>
   .wrap {
     max-width: 960px;
   }
-  .text-wrap {
+  .bg {
     background-color: #ffff;
   }
 
