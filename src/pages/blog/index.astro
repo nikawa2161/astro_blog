@@ -1,47 +1,55 @@
 ---
-
-//microCMS呼び出し
-import { log } from "astro/dist/core/logger/core";
 import BgTitle from "../../components/bgTitle/BgTitle.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getBlogs } from "../../library/microcms";
-const response = await getBlogs({ fields: ["id", "title", "eyecatch", "updatedAt"] });
 
-const tmp = "2023-02-25T05:50:50.580Z";
-const dateFormat = (date: string) =>  date.match(/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}/);
-
+const response = await getBlogs({
+  fields: ["id", "title", "eyecatch", "updatedAt"],
+});
+const dateFormat = (date: string) =>
+  date.match(/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}/);
 ---
 
 <BaseLayout title="ブログ一覧">
-    <BgTitle>ブログ一覧</BgTitle>
+  <BgTitle>ブログ一覧</BgTitle>
 
-    <div class="wrap mx-auto mt-20">
-      <ul class="grid gap-4 grid-cols-3">
-        {
-          response.contents.map((content: any) => (
-            <li>
-              <a href={`blog/${content.id}`}>
-              <img src={content.eyecatch.url} alt="" class="rounded-lg"/>
-              <p class="text mt-2">{content.title}</p>
-              <p class="date">{dateFormat(content.updatedAt)}</p>
-                </a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+  <div class="wrap mx-auto mt-20">
+    <ul class="grid gap-4 grid-cols-3">
+      {
+        response.contents.map((content: any) => (
+          <li>
+            <a
+              href={`blog/${content.id}`}
+              class="relative rounded-lg overflow-hidden shadow-lg shadow-neutral-200 ease-in-out duration-75 transition-all hover:-top-2"
+            >
+              <img src={content.eyecatch.url} alt="" />
+              <div class="text-wrap p-2">
+                <p class="date">{dateFormat(content.updatedAt)}</p>
+                <p class="text mt-2">{content.title}</p>
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </BaseLayout>
 
 <style lang="scss">
+  a {
+    display: block;
+  }
   .wrap {
     max-width: 960px;
+  }
+  .text-wrap {
+    background-color: #ffff;
   }
 
   .text {
     font-size: 1rem;
   }
   .date {
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
-
 </style>
