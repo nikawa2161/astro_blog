@@ -16,13 +16,10 @@ const dateFormat = (date: string) =>
   <div class="wrap mx-auto mt-20">
     <ul class="grid gap-4 grid-cols-3">
       {
-        response.contents.map((content: any) => (
+        response.contents.map((content) => (
           <li class="bg relative rounded-lg overflow-hidden shadow-lg shadow-neutral-200 ease-in-out duration-75 transition-all hover:-top-2">
-            <a
-              href={`blog/${content.id}`}
-              class=""
-            >
-              <img src={content.eyecatch.url} alt="" />
+            <a href={`blog/${content.id}`} class="">
+              {content.eyecatch?.url ? <img src={content.eyecatch.url} alt="" />: <img src="/public/images/astro.png" alt="" />}
               <div class="p-2">
                 <p class="date">{dateFormat(content.updatedAt)}</p>
                 <p class="text mt-2">{content.title}</p>
