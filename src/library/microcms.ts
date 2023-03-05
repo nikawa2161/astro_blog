@@ -6,11 +6,11 @@ const client = createClient({
 
 //型定義
 type Eyecatch = {
-  url: string
-}
+  url: string | undefined;
+};
 type Category = {
-  name: string
-}
+  name?: string;
+};
 export type Blog = {
   id: string;
   createdAt: string;
@@ -19,8 +19,8 @@ export type Blog = {
   revisedAt: string;
   title: string;
   content: string;
-  eyecatch: Eyecatch;
-  category: Category;
+  eyecatch?: Eyecatch;
+  category?: Category;
 };
 export type BlogResponse = {
   totalCount: number;
