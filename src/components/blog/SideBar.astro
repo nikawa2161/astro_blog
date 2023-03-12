@@ -1,0 +1,43 @@
+<aside class="w-72">
+  <div class="sticky top-20 p-4 bg-white rounded-xl shadow overflow-auto">
+    <h2 class="font-bold mb-2">目次</h2>
+
+    <ol class="relative" id="sideBar">
+      <li class="item relative font-bold mb-2 pl-5">
+        <span></span>
+        <a href=""> セクションタイトル</a>
+      </li>
+    </ol>
+  </div>
+</aside>
+
+<style>
+  #sideBar span {
+    content: "";
+    position: absolute;
+    border-radius: 999px;
+    left: 0;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: #b0d3f9;
+  }
+  #sideBar .active.item span {
+    background: #3ea8ff;
+    border-color: #e0efff;
+  }
+  ol {
+    font-size: 1rem;
+  }
+
+  ol::before {
+    position: absolute;
+    content: "";
+    width: 2px;
+    background: #e0efff;
+    top: 17px;
+    bottom: 8px;
+    left: 5px;
+    border-radius: 0 0 5px 5px;
+  }
+</style>
