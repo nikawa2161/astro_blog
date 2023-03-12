@@ -21,7 +21,7 @@ if (typeof blogId === "undefined")
 const blog = await getBlogDetail(blogId);
 const eyecatchStyle = blog.eyecatch?.url
   ? `url(${blog.eyecatch?.url})`
-  : "url(/public/images/astro.png)";
+  : "url(/images/astro.png)";
 
 const date = blog.updatedAt.match(/^[0-9]{4}\-[0-9]{2}\-[0-9]{2}/);
 const dateFormat = () => {
@@ -38,7 +38,7 @@ const dateFormat = () => {
       <img
         src={blog.eyecatch?.url
           ? blog.eyecatch.url
-          : "/public/images/astro.png"}
+          : "/images/astro.png"}
         alt=""
         class="max-h-80 object-contain absolute inset-y-0 right-0 left-2/4 -translate-x-2/4"
       />
